@@ -59,7 +59,7 @@ Dự án MyWordPad là ứng dụng soạn thảo văn bản Windows Forms với
 - [X] **Remove Bullets**: Xóa bullet khỏi văn bản
 - [X] **About**: Hiển thị thông tin ứng dụng (MessageBox)
 - [X] **Group Information**: Hiển thị thông tin nhóm (MSSV, Họ tên, Lớp)
-- [ ] **Print**: In tài liệu (sử dụng PrintDocument)
+- [X] **Print**: In tài liệu (sử dụng PrintDocument)
 - [ ] **ToolStrip Buttons**: Gán event handlers cho các nút trên toolbar
 
 **File cần sửa**: `MyWordPad/Form1.cs`, `MyWordPad/Form1.Designer.cs`

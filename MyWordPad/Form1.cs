@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace MyWordPad
 {
     public partial class Form1 : Form
     {
+        private int m_nFirstCharOnPage;
         public Form1()
         {
             InitializeComponent();
@@ -20,6 +23,8 @@ namespace MyWordPad
 
         string fileName = string.Empty;
         bool isChange = false;
+        // tracks the current print position (character index) when printing RTF with formatting
+        private int _printCharIndex = 0;
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             // Sử dụng switch (keyData) thay vì while (true)
@@ -404,7 +409,19 @@ namespace MyWordPad
 
         private void groupInformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("WordPad - Nhóm 3 - 23BITV02 - NIIE");
+            MessageBox.Show("WordPad - Group 3 - 23BITV02 - NIIE");
+        }
+
+        private void printStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PrintDocument printDocument = new PrintDocument();
+            PrintDialog printDialog = new PrintDialog();
+            printDocument.PrintPage += (s, ev) =>
+            {
+                ev.Graphics.DrawString(richTextBox1.Text, richTextBox1.Font, Brushes.Black, ev.MarginBounds);
+            };
+            if (printDialog.ShowDialog() == DialogResult.OK)
+                printDocument.Print();
         }
     }
 }
