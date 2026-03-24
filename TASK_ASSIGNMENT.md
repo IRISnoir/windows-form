@@ -40,14 +40,14 @@ Dự án MyWordPad là ứng dụng soạn thảo văn bản Windows Forms với
 ---
 
 ### Dev 4: Paragraph & Alignment (Dũng)
-- [ ] **None** (Indent): Xóa indent
-- [ ] **5 pts**: Thụt lề 5 points
-- [ ] **10 pts**: Thụt lề 10 points
-- [ ] **15 pts**: Thụt lề 15 points
-- [ ] **20 pts**: Thụt lề 20 points
-- [ ] **Left Align**: Căn trái
-- [ ] **Center Align**: Căn giữa
-- [ ] **Right Align**: Căn phải
+- [x] **None** (Indent): Xóa indent
+- [x] **5 pts**: Thụt lề 5 points
+- [x] **10 pts**: Thụt lề 10 points
+- [x] **15 pts**: Thụt lề 15 points
+- [x] **20 pts**: Thụt lề 20 points
+- [x] **Left Align**: Căn trái
+- [x] **Center Align**: Căn giữa
+- [x] **Right Align**: Căn phải
 
 **File cần sửa**: `MyWordPad/Form1.cs`, `MyWordPad/Form1.Designer.cs`
 
