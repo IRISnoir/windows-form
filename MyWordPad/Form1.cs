@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
@@ -26,6 +21,8 @@ namespace MyWordPad
         private const int WM_USER = 0x0400;
         private const int EM_FORMATRANGE = WM_USER + 57;
         private int m_nFirstCharOnPage = 0; // Biến này để đếm ký tự trang in
+
+
         public Form1()
         {
             InitializeComponent();
@@ -578,6 +575,16 @@ namespace MyWordPad
             fileName = "";
             isChange = false;
 
+        private void findToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FindReplaceForm f = new FindReplaceForm(richTextBox1, false);
+            f.Show();
+        }
+
+        private void findAndReplaceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FindReplaceForm f = new FindReplaceForm(richTextBox1, true);
+            f.Show();
         }
     }
 }
