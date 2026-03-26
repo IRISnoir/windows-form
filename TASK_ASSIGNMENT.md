@@ -31,9 +31,9 @@ Dự án MyWordPad là ứng dụng soạn thảo văn bản Windows Forms với
 ---
 
 ### Dev 3: Find & Replace (Khoa)
-- [ ] **Find**: Tìm kiếm text trong RichTextBox, highlight kết quả
-- [ ] **Find and Replace**: Tìm và thay thế text
-- [ ] Hỗ trợ Next/Previous, Case sensitive option
+- [x] **Find**: Tìm kiếm text trong RichTextBox, highlight kết quả
+- [x] **Find and Replace**: Tìm và thay thế text
+- [x] Hỗ trợ Next/Previous, Case sensitive option
 
 **Cần tạo**: `MyWordPad/FindReplaceForm.cs` (Form mới)
 
