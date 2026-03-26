@@ -142,6 +142,18 @@ namespace MyWordPad
             }
         }
 
+        private void XuLySaveAs(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Text files (*.txt)|*.txt|Rich Text Format (*.rtf)|*.rtf|All files (*.*)|*.*";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                fileName = saveFileDialog.FileName;
+                saveFile(fileName);
+            }
+        }
+
         private void saveFile(string fileName)
         {
             var extension = Path.GetExtension(fileName).ToLower();
@@ -571,6 +583,24 @@ namespace MyWordPad
                 }
             }
 
+            if (isChange)
+            {
+                DialogResult result = MessageBox.Show(
+                    "Bạn có muốn lưu file không?",
+                    "Thông báo",
+                    MessageBoxButtons.YesNoCancel
+                );
+
+                if (result == DialogResult.Yes)
+                {
+                    SaveFile();
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    return;
+                }
+            }
+
             richTextBox1.Clear();
             fileName = "";
             isChange = false;
@@ -586,6 +616,11 @@ namespace MyWordPad
         {
             FindReplaceForm f = new FindReplaceForm(richTextBox1, true);
             f.Show();
+        }
+
+        private void StripButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
