@@ -140,6 +140,7 @@
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.Size = new System.Drawing.Size(244, 46);
             this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newStripButton1_Click);
             // 
             // toolStripSeparator11
             // 
@@ -241,14 +242,14 @@
             // 
             this.findToolStripMenuItem.Name = "findToolStripMenuItem";
             this.findToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.findToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.findToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
             this.findToolStripMenuItem.Text = "Find";
             this.findToolStripMenuItem.Click += new System.EventHandler(this.findToolStripMenuItem_Click);
             // 
             // findAndReplaceToolStripMenuItem
             // 
             this.findAndReplaceToolStripMenuItem.Name = "findAndReplaceToolStripMenuItem";
-            this.findAndReplaceToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.findAndReplaceToolStripMenuItem.Size = new System.Drawing.Size(206, 26);
             this.findAndReplaceToolStripMenuItem.Text = "Find and Replace";
             this.findAndReplaceToolStripMenuItem.Click += new System.EventHandler(this.findAndReplaceToolStripMenuItem_Click);
             // 
@@ -550,6 +551,7 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(44, 44);
             this.toolStripButton1.Text = "New";
+            this.toolStripButton1.Click += new System.EventHandler(this.newStripButton1_Click);
             // 
             // toolStripButton2
             // 
@@ -631,6 +633,7 @@
             this.richTextBox1.Size = new System.Drawing.Size(857, 452);
             this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Text = "";
+            this.richTextBox1.Click += new System.EventHandler(this.newStripButton1_Click);
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // Form1

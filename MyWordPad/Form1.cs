@@ -470,6 +470,7 @@ namespace MyWordPad
                 undoStack.Push(richTextBox1.Rtf);
                 redoStack.Clear();
             }
+            isChange = true;
         }
 
         private void pd_PrintPage(object sender, PrintPageEventArgs e)
@@ -516,6 +517,63 @@ namespace MyWordPad
                 m_nFirstCharOnPage = 0; // Xong việc thì reset
             }
         }
+
+        private void SaveFile()
+        {
+            if (string.IsNullOrEmpty(fileName))
+            {
+                SaveFileDialog saveDialog = new SaveFileDialog();
+                saveDialog.Filter = "Text Files (*.txt)|*.txt|Rich Text (*.rtf)|*.rtf";
+
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    fileName = saveDialog.FileName;
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            var extension = Path.GetExtension(fileName).ToLower();
+
+            if (extension == ".rtf")
+            {
+                richTextBox1.SaveFile(fileName, RichTextBoxStreamType.RichText);
+            }
+            else
+            {
+                File.WriteAllText(fileName, richTextBox1.Text);
+            }
+
+            isChange = false;
+            this.Text = Path.GetFileName(fileName);
+        }
+
+
+        private void newStripButton1_Click(object sender, EventArgs e)
+        {
+            if (!isChange)
+            {
+                DialogResult result = MessageBox.Show(
+                    "Bạn có muốn lưu file không?",
+                    "Thông báo",
+                    MessageBoxButtons.YesNoCancel
+                );
+
+                if (result == DialogResult.Yes)
+                {
+                    SaveFile();
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    return;
+                }
+            }
+
+            richTextBox1.Clear();
+            fileName = "";
+            isChange = false;
 
         private void findToolStripMenuItem_Click(object sender, EventArgs e)
         {
