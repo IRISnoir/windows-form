@@ -9,7 +9,7 @@ Dự án MyWordPad là ứng dụng soạn thảo văn bản Windows Forms với
 ## 📋 Danh sách công việc còn lại
 
 ### Dev 1: File Operations (Hiệp)
-- [ ] **New File**: Tạo mới document, xóa nội dung RichTextBox
+- [X] **New File**: Tạo mới document, xóa nội dung RichTextBox
 - [ ] **Save As**: Lưu file với tên mới (hiện đã có XuLySave)
 - [ ] **Close**: Đóng file hiện tại, xóa nội dung
 - [ ] **Exit**: Thoát ứng dụng
