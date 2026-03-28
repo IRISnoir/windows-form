@@ -20,7 +20,7 @@
 
 ## 🛠 Chi tiết Nhiệm vụ cụ thể
 
-### 1. Dev 1 (Dũng) - [ ]
+### 1. Dev 1 (Dũng) - [X]
 - **Kiến trúc:** Thiết kế lớp trừu tượng `Shape.cs` (Base class) với các phương thức đa hình như `Draw()`.
 - **Quản lý đồ họa:** Viết lớp `DrawingManager.cs` để lưu trữ `List<Shape>`, xử lý việc vẽ đè (Double Buffering) để tránh giật lag và mất hình khi Invalidate.
 - **Tính năng cao cấp:** 
@@ -29,8 +29,8 @@
 - **Tổng hợp:** Review mã nguồn, xử lý xung đột (nếu dùng Git) và kiểm thử cuối cùng.
 
 **Files cần tạo/sửa:**
-- [ ] `Nhom_03_Paint/Shape.cs` (tạo mới)
-- [ ] `Nhom_03_Paint/DrawingManager.cs` (tạo mới)
+- [X] `Nhom_03_Paint/Shape.cs`
+- [X] `Nhom_03_Paint/DrawingManager.cs`
 
 ---
 
