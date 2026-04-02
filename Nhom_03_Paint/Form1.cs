@@ -12,6 +12,9 @@ namespace Nhom_03_Paint
 {
     public partial class Form1 : Form
     {
+        Color colorBorder; //BIẾN LƯU MÀU VIỀN
+        Color colorFill; //BIẾN LƯU MÀU TÔ
+
         private DrawingManager drawingManager;
         private bool isDrawing = false;
         private Point startPoint = Point.Empty;
@@ -32,6 +35,62 @@ namespace Nhom_03_Paint
         {
             drawingManager?.Dispose();
             base.OnFormClosing(e);
+        }
+
+        private void colorBorder_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            colorDialog.ShowDialog();
+            colorBorder = colorDialog.Color;
+
+            colorBorderSelect.BackColor = colorBorder;
+        }
+
+        private void colorFillSelect_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            colorDialog.ShowDialog();
+            colorFill = colorDialog.Color;
+
+            colorFillSelect.BackColor = colorFill;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            shapeSelect.SelectedIndex = 0;
+            fillStyleSelect.SelectedIndex = 0;
+            gradientDirectionSelect.SelectedIndex = 0;
+            colorBorder = Color.Black;
+            colorBorderSelect.BackColor = colorBorder;
+            colorFill = Color.Black;
+            colorFillSelect.BackColor = colorFill;
+        }
+
+        private void fillStyleSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (fillStyleSelect.SelectedIndex != 1)
+            {
+                labelGrad.Visible = false;
+                gradientDirectionSelect.Visible = false;
+            }
+            else
+            {
+                labelGrad.Visible = true;
+                gradientDirectionSelect.Visible = true;
+            }
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Ứng dụng vẽ đơn giản được phát triển bởi Nhóm 03.\n\n" +
+                "Các thành viên:\n" +
+                "- Nguyễn Lê Văn Dũng\n" +
+                "- Nguyễn Lê Khánh Hoàng\n" +
+                "- Nguyễn Đăng Khoa\n" +
+                "- Đỗ Văn Hiệp\n" +
+                "- Nguyễn Hữu Giàu\n" +
+                "\nCảm ơn bạn đã sử dụng ứng dụng!", 
+                "Thông tin về ứng dụng", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
