@@ -31,7 +31,7 @@ namespace Nhom_03_Paint
         private ResizeHandle currentResizeHandle = ResizeHandle.None;
         private bool isResizing = false;
         private Point resizeStartPoint = Point.Empty;
-        private Rectangle originalRect = Rectangle.Empty;
+        private int origLeft = 0, origTop = 0, origRight = 0, origBottom = 0;
 
         private Shape SelectedShape
         {
@@ -86,43 +86,65 @@ namespace Nhom_03_Paint
         {
             if (movingShape == null) return;
 
-            Rectangle rect = originalRect;
-            Point delta = new Point(currentPoint.X - resizeStartPoint.X, currentPoint.Y - resizeStartPoint.Y);
+            int minSize = 10;
+            int left = origLeft, top = origTop, right = origRight, bottom = origBottom;
 
             switch (currentResizeHandle)
             {
                 case ResizeHandle.TopLeft:
-                    movingShape.StartPoint = new Point(rect.Left + delta.X, rect.Top + delta.Y);
+                    left = Math.Min(currentPoint.X, origRight - minSize);
+                    top = Math.Min(currentPoint.Y, origBottom - minSize);
                     break;
                 case ResizeHandle.TopCenter:
-                    movingShape.StartPoint = new Point(movingShape.StartPoint.X, rect.Top + delta.Y);
+                    top = Math.Min(currentPoint.Y, origBottom - minSize);
                     break;
                 case ResizeHandle.TopRight:
-                    movingShape.StartPoint = new Point(movingShape.StartPoint.X, rect.Top + delta.Y);
-                    movingShape.EndPoint = new Point(rect.Right + delta.X, movingShape.EndPoint.Y);
+                    top = Math.Min(currentPoint.Y, origBottom - minSize);
+                    right = Math.Max(currentPoint.X, origLeft + minSize);
                     break;
                 case ResizeHandle.MiddleLeft:
-                    movingShape.StartPoint = new Point(rect.Left + delta.X, movingShape.StartPoint.Y);
+                    left = Math.Min(currentPoint.X, origRight - minSize);
                     break;
                 case ResizeHandle.MiddleRight:
-                    movingShape.EndPoint = new Point(rect.Right + delta.X, movingShape.EndPoint.Y);
+                    right = Math.Max(currentPoint.X, origLeft + minSize);
                     break;
                 case ResizeHandle.BottomLeft:
-                    movingShape.StartPoint = new Point(rect.Left + delta.X, movingShape.StartPoint.Y);
-                    movingShape.EndPoint = new Point(movingShape.EndPoint.X, rect.Bottom + delta.Y);
+                    left = Math.Min(currentPoint.X, origRight - minSize);
+                    bottom = Math.Max(currentPoint.Y, origTop + minSize);
                     break;
                 case ResizeHandle.BottomCenter:
-                    movingShape.EndPoint = new Point(movingShape.EndPoint.X, rect.Bottom + delta.Y);
+                    bottom = Math.Max(currentPoint.Y, origTop + minSize);
                     break;
                 case ResizeHandle.BottomRight:
-                    movingShape.EndPoint = new Point(rect.Right + delta.X, rect.Bottom + delta.Y);
+                    right = Math.Max(currentPoint.X, origLeft + minSize);
+                    bottom = Math.Max(currentPoint.Y, origTop + minSize);
                     break;
             }
 
-            // Ensure StartPoint is top-left, EndPoint is bottom-right
-            Rectangle newRect = movingShape.GetBoundingRectangle();
-            movingShape.StartPoint = new Point(Math.Min(newRect.Left, newRect.Right), Math.Min(newRect.Top, newRect.Bottom));
-            movingShape.EndPoint = new Point(Math.Max(newRect.Left, newRect.Right), Math.Max(newRect.Top, newRect.Bottom));
+            // Normalize: ensure left <= right and top <= bottom
+            int newLeft = Math.Min(left, right);
+            int newTop = Math.Min(top, bottom);
+            int newRight = Math.Max(left, right);
+            int newBottom = Math.Max(top, bottom);
+
+            // Ensure minimum size
+            if (newRight - newLeft < minSize)
+            {
+                if (currentResizeHandle == ResizeHandle.TopLeft || currentResizeHandle == ResizeHandle.MiddleLeft || currentResizeHandle == ResizeHandle.BottomLeft)
+                    newLeft = newRight - minSize;
+                else
+                    newRight = newLeft + minSize;
+            }
+            if (newBottom - newTop < minSize)
+            {
+                if (currentResizeHandle == ResizeHandle.TopLeft || currentResizeHandle == ResizeHandle.TopCenter || currentResizeHandle == ResizeHandle.TopRight)
+                    newTop = newBottom - minSize;
+                else
+                    newBottom = newTop + minSize;
+            }
+
+            movingShape.StartPoint = new Point(newLeft, newTop);
+            movingShape.EndPoint = new Point(newRight, newBottom);
         }
 
         public Form1()
@@ -134,7 +156,12 @@ namespace Nhom_03_Paint
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            this.DoubleBuffered = true; // Kích hoạt Double Buffering cho Form
+            this.DoubleBuffered = true;
+            //panel1.DoubleBuffered = true;
+            panel1.MouseDown += panel1_MouseDown;
+            panel1.MouseMove += panel1_MouseMove;
+            panel1.MouseUp += panel1_MouseUp;
+            panel1.Paint += panel1_Paint;
             panel1.DoubleClick += panel1_DoubleClick;
             gradientDirectionSelect.SelectedIndexChanged += gradientDirectionSelect_SelectedIndexChanged;
             sizeBorder.ValueChanged += sizeBorder_ValueChanged;
@@ -268,12 +295,14 @@ namespace Nhom_03_Paint
                 // Check if currently editing (resizing or moving)
                 bool wasEditing = isResizing || isMoving;
 
-                // First, check for shape selection
+                // First, check for shape selection using bounding rectangle for easier selection
                 var shapes = drawingManager.GetShapes();
                 Shape selectedShape = null;
                 for (int i = shapes.Count - 1; i >= 0; i--)
                 {
-                    if (shapes[i].Contains(e.Location))
+                    var rect = shapes[i].GetBoundingRectangle();
+                    rect.Inflate(3, 3);
+                    if (rect.Contains(e.Location))
                     {
                         selectedShape = shapes[i];
                         break;
@@ -311,7 +340,11 @@ namespace Nhom_03_Paint
                             isResizing = true;
                             movingShape = selectedShape;
                             resizeStartPoint = e.Location;
-                            originalRect = selectedShape.GetBoundingRectangle();
+                            Rectangle r = selectedShape.GetBoundingRectangle();
+                            origLeft = r.Left;
+                            origTop = r.Top;
+                            origRight = r.Right;
+                            origBottom = r.Bottom;
                             SetCursorForHandle(currentResizeHandle);
                             break;
                         }
@@ -407,33 +440,36 @@ namespace Nhom_03_Paint
                 panel1.Invalidate();
             }
 
-            // Check for resize handles
-            var selectedShape = SelectedShape;
-            if (selectedShape != null && !(selectedShape is TextShape))
+            // Check for resize handles (only when not actively resizing, moving, or drawing)
+            if (!isResizing && !isMoving && !isDrawing)
             {
-                Point[] handles = GetResizeHandles(selectedShape);
-                bool overHandle = false;
-                for (int i = 0; i < handles.Length; i++)
+                var selectedShape = SelectedShape;
+                if (selectedShape != null && !(selectedShape is TextShape))
                 {
-                    Rectangle handleRect = new Rectangle(handles[i].X - 6, handles[i].Y - 6, 12, 12);
-                    if (handleRect.Contains(e.Location))
+                    Point[] handles = GetResizeHandles(selectedShape);
+                    bool overHandle = false;
+                    for (int i = 0; i < handles.Length; i++)
                     {
-                        overHandle = true;
-                        currentResizeHandle = (ResizeHandle)(i + 1); // Enum starts from 1
-                        SetCursorForHandle(currentResizeHandle);
-                        break;
+                        Rectangle handleRect = new Rectangle(handles[i].X - 6, handles[i].Y - 6, 12, 12);
+                        if (handleRect.Contains(e.Location))
+                        {
+                            overHandle = true;
+                            currentResizeHandle = (ResizeHandle)(i + 1);
+                            SetCursorForHandle(currentResizeHandle);
+                            break;
+                        }
+                    }
+                    if (!overHandle)
+                    {
+                        currentResizeHandle = ResizeHandle.None;
+                        panel1.Cursor = Cursors.Default;
                     }
                 }
-                if (!overHandle)
+                else
                 {
                     currentResizeHandle = ResizeHandle.None;
                     panel1.Cursor = Cursors.Default;
                 }
-            }
-            else
-            {
-                currentResizeHandle = ResizeHandle.None;
-                panel1.Cursor = Cursors.Default;
             }
         }
 

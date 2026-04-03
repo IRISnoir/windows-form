@@ -33,6 +33,17 @@ namespace Nhom_03_Paint
             return GetBoundingRectangle().Contains(p);
         }
 
+        // Kiểm tra điểm có nằm trong hình hoặc gần viền hay không
+        public virtual bool ContainsOrNearBorder(Point p)
+        {
+            if (Contains(p)) return true;
+            // Kiểm tra xem điểm có gần viền không (trong phạm vi border width + tolerance)
+            var rect = GetBoundingRectangle();
+            int tolerance = Math.Max(6, BorderWidth);
+            var expanded = new Rectangle(rect.X - tolerance, rect.Y - tolerance, rect.Width + tolerance * 2, rect.Height + tolerance * 2);
+            return expanded.Contains(p);
+        }
+
         // Phương thức trừu tượng - các hình sẽ phải triển khai
         public abstract void Draw(Graphics g);
 
