@@ -1,4 +1,4 @@
-using Nhom_03_Paint.Shapes;
+﻿using Nhom_03_Paint.Shapes;
 using System.Drawing.Drawing2D;
 using System;
 using System.Collections.Generic;
@@ -21,6 +21,8 @@ namespace Nhom_03_Paint
 
         private Bitmap backBuffer;
         private Graphics backGraphics;
+
+        private Image backgroundImage = null;
 
         public void SetPreviewShape(Shape s)
         {
@@ -73,6 +75,22 @@ namespace Nhom_03_Paint
                 try { s.Brush?.Dispose(); } catch { }
             }
             shapes.Clear();
+            
+            // Xóa cả ảnh nền khi làm mới
+            if (backgroundImage != null)
+            {
+                backgroundImage.Dispose();
+                backgroundImage = null;
+            }
+        }
+
+        public void SetBackgroundImage(Image image)
+        {
+            if (backgroundImage != null)
+            {
+                backgroundImage.Dispose();
+            }
+            backgroundImage = new Bitmap(image);
         }
 
         public bool DeleteSelectedShape()
@@ -217,6 +235,12 @@ namespace Nhom_03_Paint
             }
 
             backGraphics.Clear(Color.White);
+
+            // Vẽ ảnh nền trước (nếu có)
+            if (backgroundImage != null)
+            {
+                backGraphics.DrawImage(backgroundImage, 0, 0, width, height);
+            }
 
             foreach (var shape in shapes)
             {

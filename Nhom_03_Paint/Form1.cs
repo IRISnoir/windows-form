@@ -26,6 +26,10 @@ namespace Nhom_03_Paint
         private Point originalDelta = Point.Empty;
         private Point lastEndPoint = Point.Empty;
 
+        // Biến theo dõi trạng thái file ảnh
+        private string currentFilePath = null;
+        private System.Drawing.Imaging.ImageFormat currentImageFormat = null;
+
         private enum ResizeHandle { None, TopLeft, TopCenter, TopRight, MiddleLeft, MiddleRight, BottomLeft, BottomCenter, BottomRight, LineStart, LineEnd }
         private ResizeHandle currentResizeHandle = ResizeHandle.None;
         private bool isResizing = false;
@@ -343,8 +347,155 @@ namespace Nhom_03_Paint
                 "- Nguyễn Đăng Khoa\n" +
                 "- Đỗ Văn Hiệp\n" +
                 "- Nguyễn Hữu Giàu\n" +
-                "\nCảm ơn bạn đã sử dụng ứng dụng!", 
+                "\nCảm ơn bạn đã sử dụng ứng dụng!",
                 "Thông tin về ứng dụng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Tất cả file ảnh|*.png;*.jpg;*.jpeg;*.bmp;*.gif|PNG Images|*.png|JPEG Images|*.jpg;*.jpeg|Bitmap Images|*.bmp|GIF Images|*.gif";
+                openFileDialog.Title = "Mở file ảnh";
+                
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        // Lưu thông tin file gốc
+                        currentFilePath = openFileDialog.FileName;
+                        
+                        // Xác định định dạng ảnh gốc
+                        string extension = System.IO.Path.GetExtension(currentFilePath).ToLower();
+                        switch (extension)
+                        {
+                            case ".jpg":
+                            case ".jpeg":
+                                currentImageFormat = System.Drawing.Imaging.ImageFormat.Jpeg;
+                                break;
+                            case ".bmp":
+                                currentImageFormat = System.Drawing.Imaging.ImageFormat.Bmp;
+                                break;
+                            case ".gif":
+                                currentImageFormat = System.Drawing.Imaging.ImageFormat.Gif;
+                                break;
+                            case ".png":
+                            default:
+                                currentImageFormat = System.Drawing.Imaging.ImageFormat.Png;
+                                break;
+                        }
+
+                        // Đọc ảnh và đưa vào DrawingManager
+                        using (Image loadedImage = Image.FromFile(currentFilePath))
+                        {
+                            drawingManager.ClearAll();
+                            drawingManager.SetBackgroundImage(loadedImage);
+                            panel1.Invalidate();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Không thể mở file ảnh: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        currentFilePath = null;
+                        currentImageFormat = null;
+                    }
+                }
+            }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Nếu đã có file đang mở thì lưu trực tiếp vào file đó với định dạng gốc
+            if (!string.IsNullOrEmpty(currentFilePath) && currentImageFormat != null)
+            {
+                SaveToFile(currentFilePath, currentImageFormat);
+            }
+            else
+            {
+                // Nếu là ảnh mới thì mở dialog lưu như Save As (mặc định PNG)
+                saveAsToolStripMenuItem_Click(sender, e);
+            }
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "PNG Image|*.png|JPEG Image|*.jpg;*.jpeg|Bitmap Image|*.bmp|GIF Image|*.gif";
+                saveFileDialog.Title = "Lưu ảnh";
+                saveFileDialog.FileName = "untitled";
+                
+                // Mặc định chọn PNG khi tạo ảnh mới
+                saveFileDialog.FilterIndex = 1;
+                saveFileDialog.DefaultExt = "png";
+                saveFileDialog.AddExtension = true;
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    System.Drawing.Imaging.ImageFormat selectedFormat;
+                    
+                    switch (saveFileDialog.FilterIndex)
+                    {
+                        case 2:
+                            selectedFormat = System.Drawing.Imaging.ImageFormat.Jpeg;
+                            break;
+                        case 3:
+                            selectedFormat = System.Drawing.Imaging.ImageFormat.Bmp;
+                            break;
+                        case 4:
+                            selectedFormat = System.Drawing.Imaging.ImageFormat.Gif;
+                            break;
+                        case 1:
+                        default:
+                            selectedFormat = System.Drawing.Imaging.ImageFormat.Png;
+                            break;
+                    }
+
+                    SaveToFile(saveFileDialog.FileName, selectedFormat);
+                    
+                    // Cập nhật thông tin file hiện tại sau khi lưu
+                    currentFilePath = saveFileDialog.FileName;
+                    currentImageFormat = selectedFormat;
+                }
+            }
+        }
+
+        private void SaveToFile(string filePath, System.Drawing.Imaging.ImageFormat format)
+        {
+            try
+            {
+                // Tạo bitmap với kích thước canvas
+                using (Bitmap bitmap = new Bitmap(panel1.Width, panel1.Height))
+                {
+                    // Vẽ tất cả nội dung lên bitmap
+                    using (Graphics g = Graphics.FromImage(bitmap))
+                    {
+                        g.Clear(Color.White);
+                        drawingManager.DrawAll(g, panel1.Width, panel1.Height);
+                    }
+                    
+                    // Lưu ảnh với định dạng được chỉ định
+                    bitmap.Save(filePath, format);
+                }
+                
+                MessageBox.Show("Lưu ảnh thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Không thể lưu ảnh: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Reset trạng thái file
+            currentFilePath = null;
+            currentImageFormat = null;
+            
+            // Xóa toàn bộ nội dung
+            drawingManager.ClearAll();
+            ClearSelection();
+            panel1.Invalidate();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
