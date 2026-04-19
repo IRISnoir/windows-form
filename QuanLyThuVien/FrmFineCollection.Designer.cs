@@ -1,4 +1,4 @@
-﻿namespace QuanLyThuVien
+namespace QuanLyThuVien
 {
     partial class FrmFineCollection
     {
@@ -33,14 +33,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.txtReaderID = new System.Windows.Forms.TextBox();
+            this.txtStaffID = new System.Windows.Forms.TextBox();
+            this.txtCurrentFine = new System.Windows.Forms.TextBox();
+            this.txtAmountCollected = new System.Windows.Forms.TextBox();
+            this.txtRemainingFine = new System.Windows.Forms.TextBox();
+            this.btnConfirm = new System.Windows.Forms.Button();
+            this.btnSearchReader = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -100,86 +100,86 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Tiền nợ hiện tại";
             // 
-            // textBox1
+            // txtReaderID
             // 
-            this.textBox1.Location = new System.Drawing.Point(137, 14);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(196, 22);
-            this.textBox1.TabIndex = 5;
+            this.txtReaderID.Location = new System.Drawing.Point(137, 14);
+            this.txtReaderID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtReaderID.Name = "txtReaderID";
+            this.txtReaderID.Size = new System.Drawing.Size(196, 22);
+            this.txtReaderID.TabIndex = 5;
             // 
-            // textBox2
+            // txtStaffID
             // 
-            this.textBox2.Location = new System.Drawing.Point(197, 238);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(265, 22);
-            this.textBox2.TabIndex = 6;
+            this.txtStaffID.Location = new System.Drawing.Point(197, 238);
+            this.txtStaffID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStaffID.Name = "txtStaffID";
+            this.txtStaffID.Size = new System.Drawing.Size(265, 22);
+            this.txtStaffID.TabIndex = 6;
             // 
-            // textBox3
+            // txtCurrentFine
             // 
-            this.textBox3.Location = new System.Drawing.Point(176, 32);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(265, 32);
-            this.textBox3.TabIndex = 7;
+            this.txtCurrentFine.Location = new System.Drawing.Point(176, 32);
+            this.txtCurrentFine.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCurrentFine.Name = "txtCurrentFine";
+            this.txtCurrentFine.Size = new System.Drawing.Size(265, 32);
+            this.txtCurrentFine.TabIndex = 7;
             // 
-            // textBox4
+            // txtAmountCollected
             // 
-            this.textBox4.Location = new System.Drawing.Point(176, 73);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(265, 32);
-            this.textBox4.TabIndex = 8;
+            this.txtAmountCollected.Location = new System.Drawing.Point(176, 73);
+            this.txtAmountCollected.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAmountCollected.Name = "txtAmountCollected";
+            this.txtAmountCollected.Size = new System.Drawing.Size(265, 32);
+            this.txtAmountCollected.TabIndex = 8;
             // 
-            // textBox5
+            // txtRemainingFine
             // 
-            this.textBox5.Location = new System.Drawing.Point(176, 113);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(265, 32);
-            this.textBox5.TabIndex = 9;
+            this.txtRemainingFine.Location = new System.Drawing.Point(176, 113);
+            this.txtRemainingFine.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtRemainingFine.Name = "txtRemainingFine";
+            this.txtRemainingFine.Size = new System.Drawing.Size(265, 32);
+            this.txtRemainingFine.TabIndex = 9;
             // 
-            // button1
+            // btnConfirm
             // 
-            this.button1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(56, 286);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 37);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Xác nhận";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnConfirm.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.Location = new System.Drawing.Point(56, 286);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(133, 37);
+            this.btnConfirm.TabIndex = 10;
+            this.btnConfirm.Text = "Xác nhận";
+            this.btnConfirm.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnSearchReader
             // 
-            this.button2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(343, 11);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 37);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Tìm kiếm";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSearchReader.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchReader.Location = new System.Drawing.Point(343, 11);
+            this.btnSearchReader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearchReader.Name = "btnSearchReader";
+            this.btnSearchReader.Size = new System.Drawing.Size(133, 37);
+            this.btnSearchReader.TabIndex = 11;
+            this.btnSearchReader.Text = "Tìm kiếm";
+            this.btnSearchReader.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnCancel
             // 
-            this.button3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(280, 286);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(133, 37);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Hủy";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnCancel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(280, 286);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(133, 37);
+            this.btnCancel.TabIndex = 12;
+            this.btnCancel.Text = "Hủy";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.txtCurrentFine);
+            this.groupBox1.Controls.Add(this.txtAmountCollected);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.txtRemainingFine);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(21, 55);
@@ -197,11 +197,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(499, 356);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnSearchReader);
+            this.Controls.Add(this.btnConfirm);
+            this.Controls.Add(this.txtStaffID);
+            this.Controls.Add(this.txtReaderID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -221,14 +221,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox txtReaderID;
+        private System.Windows.Forms.TextBox txtStaffID;
+        private System.Windows.Forms.TextBox txtCurrentFine;
+        private System.Windows.Forms.TextBox txtAmountCollected;
+        private System.Windows.Forms.TextBox txtRemainingFine;
+        private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.Button btnSearchReader;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.GroupBox groupBox1;
     }
 }
