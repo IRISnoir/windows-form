@@ -1,4 +1,4 @@
-﻿namespace QuanLyThuVien
+namespace QuanLyThuVien
 {
     partial class FrmReturn
     {
@@ -29,32 +29,33 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnSearchBorrowing = new System.Windows.Forms.Button();
+            this.txtReaderID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnConfirmReturn = new System.Windows.Forms.Button();
+            this.dgvBorrowingList = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtTotalFine = new System.Windows.Forms.TextBox();
+            this.txtLateDays = new System.Windows.Forms.TextBox();
+            this.txtPricePerMonth = new System.Windows.Forms.TextBox();
+            this.dtpReturnDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpBorrowDate = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.chkIsLost = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBorrowingList)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.btnSearchBorrowing);
+            this.groupBox1.Controls.Add(this.txtReaderID);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(16, 15);
@@ -66,23 +67,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chi tiết thông tin";
             // 
-            // button1
+            // btnSearchBorrowing
             // 
-            this.button1.Location = new System.Drawing.Point(80, 111);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 42);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Tìm kiếm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSearchBorrowing.Location = new System.Drawing.Point(80, 111);
+            this.btnSearchBorrowing.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSearchBorrowing.Name = "btnSearchBorrowing";
+            this.btnSearchBorrowing.Size = new System.Drawing.Size(160, 42);
+            this.btnSearchBorrowing.TabIndex = 4;
+            this.btnSearchBorrowing.Text = "Tìm kiếm";
+            this.btnSearchBorrowing.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtReaderID
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 55);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(305, 32);
-            this.textBox1.TabIndex = 1;
+            this.txtReaderID.Location = new System.Drawing.Point(13, 55);
+            this.txtReaderID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtReaderID.Name = "txtReaderID";
+            this.txtReaderID.Size = new System.Drawing.Size(305, 32);
+            this.txtReaderID.TabIndex = 1;
             // 
             // label1
             // 
@@ -94,50 +95,51 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã đọc giả";
             // 
-            // button3
+            // btnCancel
             // 
-            this.button3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(821, 516);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(133, 37);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Hủy";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnCancel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(821, 516);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(133, 37);
+            this.btnCancel.TabIndex = 7;
+            this.btnCancel.Text = "Hủy";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnConfirmReturn
             // 
-            this.button2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(963, 516);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 37);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Xác nhận";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnConfirmReturn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmReturn.Location = new System.Drawing.Point(963, 516);
+            this.btnConfirmReturn.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConfirmReturn.Name = "btnConfirmReturn";
+            this.btnConfirmReturn.Size = new System.Drawing.Size(133, 37);
+            this.btnConfirmReturn.TabIndex = 6;
+            this.btnConfirmReturn.Text = "Xác nhận";
+            this.btnConfirmReturn.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvBorrowingList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(356, 15);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(740, 494);
-            this.dataGridView1.TabIndex = 5;
+            this.dgvBorrowingList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBorrowingList.Location = new System.Drawing.Point(356, 15);
+            this.dgvBorrowingList.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvBorrowingList.Name = "dgvBorrowingList";
+            this.dgvBorrowingList.RowHeadersWidth = 51;
+            this.dgvBorrowingList.Size = new System.Drawing.Size(740, 494);
+            this.dgvBorrowingList.TabIndex = 5;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.dateTimePicker2);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
+            this.groupBox2.Controls.Add(this.txtTotalFine);
+            this.groupBox2.Controls.Add(this.txtLateDays);
+            this.groupBox2.Controls.Add(this.txtPricePerMonth);
+            this.groupBox2.Controls.Add(this.dtpReturnDate);
+            this.groupBox2.Controls.Add(this.dtpBorrowDate);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.chkIsLost);
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(16, 194);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
@@ -148,45 +150,45 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thanh toán";
             // 
-            // textBox4
+            // txtTotalFine
             // 
-            this.textBox4.Location = new System.Drawing.Point(185, 241);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(132, 32);
-            this.textBox4.TabIndex = 9;
+            this.txtTotalFine.Location = new System.Drawing.Point(185, 241);
+            this.txtTotalFine.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTotalFine.Name = "txtTotalFine";
+            this.txtTotalFine.Size = new System.Drawing.Size(132, 32);
+            this.txtTotalFine.TabIndex = 9;
             // 
-            // textBox3
+            // txtLateDays
             // 
-            this.textBox3.Location = new System.Drawing.Point(185, 201);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(132, 32);
-            this.textBox3.TabIndex = 8;
+            this.txtLateDays.Location = new System.Drawing.Point(185, 201);
+            this.txtLateDays.Margin = new System.Windows.Forms.Padding(4);
+            this.txtLateDays.Name = "txtLateDays";
+            this.txtLateDays.Size = new System.Drawing.Size(132, 32);
+            this.txtLateDays.TabIndex = 8;
             // 
-            // textBox2
+            // txtPricePerMonth
             // 
-            this.textBox2.Location = new System.Drawing.Point(185, 160);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(132, 32);
-            this.textBox2.TabIndex = 7;
+            this.txtPricePerMonth.Location = new System.Drawing.Point(185, 160);
+            this.txtPricePerMonth.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPricePerMonth.Name = "txtPricePerMonth";
+            this.txtPricePerMonth.Size = new System.Drawing.Size(132, 32);
+            this.txtPricePerMonth.TabIndex = 7;
             // 
-            // dateTimePicker2
+            // dtpReturnDate
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(12, 119);
-            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(305, 32);
-            this.dateTimePicker2.TabIndex = 6;
+            this.dtpReturnDate.Location = new System.Drawing.Point(12, 119);
+            this.dtpReturnDate.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpReturnDate.Name = "dtpReturnDate";
+            this.dtpReturnDate.Size = new System.Drawing.Size(305, 32);
+            this.dtpReturnDate.TabIndex = 6;
             // 
-            // dateTimePicker1
+            // dtpBorrowDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(13, 55);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(305, 32);
-            this.dateTimePicker1.TabIndex = 5;
+            this.dtpBorrowDate.Location = new System.Drawing.Point(13, 55);
+            this.dtpBorrowDate.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpBorrowDate.Name = "dtpBorrowDate";
+            this.dtpBorrowDate.Size = new System.Drawing.Size(305, 32);
+            this.dtpBorrowDate.TabIndex = 5;
             // 
             // label6
             // 
@@ -238,6 +240,16 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Ngày mượn";
             // 
+            // chkIsLost
+            // 
+            this.chkIsLost.AutoSize = true;
+            this.chkIsLost.Location = new System.Drawing.Point(12, 281);
+            this.chkIsLost.Name = "chkIsLost";
+            this.chkIsLost.Size = new System.Drawing.Size(115, 28);
+            this.chkIsLost.TabIndex = 10;
+            this.chkIsLost.Text = "Mất sách";
+            this.chkIsLost.UseVisualStyleBackColor = true;
+            // 
             // FrmReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -245,15 +257,15 @@
             this.ClientSize = new System.Drawing.Size(1112, 567);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnConfirmReturn);
+            this.Controls.Add(this.dgvBorrowingList);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmReturn";
             this.Text = "Phiếu Trả Sách";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBorrowingList)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -263,22 +275,23 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnSearchBorrowing;
+        private System.Windows.Forms.TextBox txtReaderID;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnConfirmReturn;
+        private System.Windows.Forms.DataGridView dgvBorrowingList;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox txtTotalFine;
+        private System.Windows.Forms.TextBox txtLateDays;
+        private System.Windows.Forms.TextBox txtPricePerMonth;
+        private System.Windows.Forms.DateTimePicker dtpReturnDate;
+        private System.Windows.Forms.DateTimePicker dtpBorrowDate;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox chkIsLost;
     }
 }

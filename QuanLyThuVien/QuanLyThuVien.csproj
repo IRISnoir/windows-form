@@ -60,6 +60,7 @@
     <Compile Include="Enums\Position.cs" />
     <Compile Include="Enums\ReaderType.cs" />
     <Compile Include="Extensions\ControlExtensions.cs" />
+    <Compile Include="Helpers\DatabaseHelper.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
