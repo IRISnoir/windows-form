@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static QuanLyThuVien.FrmLogin;
 
 namespace QuanLyThuVien
 {
@@ -15,6 +16,11 @@ namespace QuanLyThuVien
         public FrmMain()
         {
             InitializeComponent();
+        }
+
+        public void UpdateUserUI()
+        {
+            DangNhap.Text = CurrentUser.HoTen;
         }
 
         private void DangNhapToolStripMenuItem_Click(object sender, EventArgs e)
@@ -26,73 +32,116 @@ namespace QuanLyThuVien
 
         private void HSNhanVien_Click(object sender, EventArgs e)
         {
-            FrmStaff frmStaff = new FrmStaff();
-            frmStaff.MdiParent = this;
-            frmStaff.Show();
+            if (CurrentUser.BoPhan == "Ban Giám Đốc") //Oke
+            {
+                FrmLogin frmLogin = new FrmLogin();
+                frmLogin.MdiParent = this;
+                frmLogin.Show();
+                return;
+            }
         }
 
         private void TheDocGia_Click(object sender, EventArgs e)
         {
-            FrmReaderCard frmReaderCard = new FrmReaderCard();
-            frmReaderCard.MdiParent = this;
-            frmReaderCard.Show();
+
+            if (CurrentUser.BoPhan == "Thủ Thư") //Oke
+            {
+                FrmReaderCard frmReaderCard = new FrmReaderCard();
+                frmReaderCard.MdiParent = this;
+                frmReaderCard.Show();
+                return;
+            }
         }
 
         private void PhieuMuonSach_Click(object sender, EventArgs e)
         {
-            FrmBorrow frmBorrow = new FrmBorrow();
-            frmBorrow.MdiParent = this;
-            frmBorrow.Show();
+            if (CurrentUser.BoPhan == "Thủ Thư") //Oke
+            {
+                FrmBorrow frmBorrow = new FrmBorrow();
+                frmBorrow.MdiParent = this;
+                frmBorrow.Show();
+                return;
+            }
         }
 
         private void PhieuTraSach_Click(object sender, EventArgs e)
         {
-            FrmReturn frmReturn = new FrmReturn();
-            frmReturn.MdiParent = this;
-            frmReturn.Show();
+            if (CurrentUser.BoPhan == "Thủ Thư") //Oke
+            {
+                FrmReturn frmReturn = new FrmReturn();
+                frmReturn.MdiParent = this;
+                frmReturn.Show();
+                return;
+            }
         }
 
         private void TiepNhanSachMoi_Click(object sender, EventArgs e)
         {
-            FrmBookEntry frmBookEntry = new FrmBookEntry();
-            frmBookEntry.MdiParent = this;
-            frmBookEntry.Show();
+            if (CurrentUser.BoPhan == "Thủ Kho") //Oke
+            {
+                FrmBookEntry frmBookEntry = new FrmBookEntry();
+                frmBookEntry.MdiParent = this;
+                frmBookEntry.Show();
+                return;
+            }
         }
 
         private void TraCuuSach_Click(object sender, EventArgs e)
         {
-            FrmSearchBook frmSearchBook = new FrmSearchBook();
-            frmSearchBook.MdiParent = this;
-            frmSearchBook.Show();
+            if (CurrentUser.BoPhan == "Thủ Kho" || CurrentUser.BoPhan == "Ban Giám Đốc" || CurrentUser.BoPhan == "Thủ Thư" || CurrentUser.BoPhan == "Thủ Quỹ") //Oke
+            {
+                FrmSearchBook frmSearchBook = new FrmSearchBook();
+                frmSearchBook.MdiParent = this;
+                frmSearchBook.Show();
+                return;
+            }
         }
 
         private void ThuTienPhat_Click(object sender, EventArgs e)
         {
-            FrmFineCollection frmFineCollection = new FrmFineCollection();
-            frmFineCollection.MdiParent = this;
-            frmFineCollection.Show();
+            if (CurrentUser.BoPhan == "Thủ Quỹ")//Oke
+            {
+                FrmFineCollection frmFineCollection = new FrmFineCollection();
+                frmFineCollection.MdiParent = this;
+                frmFineCollection.Show();
+                return;
+            }
         }
 
         private void ThanhLy_Click(object sender, EventArgs e)
         {
-            FrmLiquidation frmLiquidation = new FrmLiquidation();
-            frmLiquidation.MdiParent = this;
-            frmLiquidation.Show();
+            if (CurrentUser.BoPhan == "Thủ Kho") //Oke
+            {
+                FrmLiquidation frmLiquidation = new FrmLiquidation();
+                frmLiquidation.MdiParent = this;
+                frmLiquidation.Show();
+                return;
+            }
+
         }
 
-        private void BaoCaoThongKe_Click(object sender, EventArgs e)
+        private void BaoCaoThongKe_Click(object sender, EventArgs e)//Oke   
         {
-            FrmReports frmReports = new FrmReports();   
-            frmReports.MdiParent = this;
-            frmReports.Show();
+            if (CurrentUser.BoPhan == "Ban Giám Đốc")
+            {
+                FrmReports frmReports = new FrmReports();
+                frmReports.MdiParent = this;
+                frmReports.Show();
+                return;
+            }
+
         }
 
         private void CaiDat_Click(object sender, EventArgs e)
         {
-            FrmSettings frmSettings = new FrmSettings();    
-            frmSettings.MdiParent = this;
-            frmSettings.Show();
+            if (CurrentUser.BoPhan == "Ban Giám Đốc") //Oke
+            {   
+                FrmSettings frmSettings = new FrmSettings();
+                frmSettings.MdiParent = this;
+                frmSettings.Show(); 
+            }
         }
+        
 
         private void TroGiupToolStripMenuItem_Click(object sender, EventArgs e)
         {
