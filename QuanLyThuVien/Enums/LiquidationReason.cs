@@ -8,8 +8,8 @@ namespace QuanLyThuVien.Enums
 {
     public enum LiquidationReason
     {
-        Mat,
-        HuHong,
-        NguoiDungLamMat
+        Mất,
+        Hư,
+        NgườiDùngLàmMất
     }
 }

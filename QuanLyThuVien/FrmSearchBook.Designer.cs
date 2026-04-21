@@ -28,154 +28,167 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.txtMaSach = new System.Windows.Forms.TextBox();
+            this.btnTimKiem = new System.Windows.Forms.Button();
+            this.grpBoLoc = new System.Windows.Forms.GroupBox();
+            this.cboTheLoaiFilter = new System.Windows.Forms.ComboBox();
+            this.lblTheLoaiFilterLabel = new System.Windows.Forms.Label();
+            this.lblTinhTrangLabel = new System.Windows.Forms.Label();
+            this.btnDangMuon = new System.Windows.Forms.Button();
+            this.btnSanSang = new System.Windows.Forms.Button();
+            this.btnTatCa = new System.Windows.Forms.Button();
+            this.dgvBooks = new System.Windows.Forms.DataGridView();
+            this.lblMaSach = new System.Windows.Forms.Label();
+            this.grpBoLoc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtMaSach
             // 
-            this.textBox1.Location = new System.Drawing.Point(16, 47);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(285, 22);
-            this.textBox1.TabIndex = 0;
+            this.txtMaSach.Location = new System.Drawing.Point(16, 47);
+            this.txtMaSach.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMaSach.Name = "txtMaSach";
+            this.txtMaSach.Size = new System.Drawing.Size(285, 22);
+            this.txtMaSach.TabIndex = 0;
             // 
-            // button1
+            // btnTimKiem
             // 
-            this.button1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(16, 79);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(287, 33);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Tìm kiếm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimKiem.Location = new System.Drawing.Point(16, 79);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(287, 33);
+            this.btnTimKiem.TabIndex = 1;
+            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // grpBoLoc
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(16, 145);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(287, 270);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Bộ Lọc";
+            this.grpBoLoc.Controls.Add(this.cboTheLoaiFilter);
+            this.grpBoLoc.Controls.Add(this.lblTheLoaiFilterLabel);
+            this.grpBoLoc.Controls.Add(this.lblTinhTrangLabel);
+            this.grpBoLoc.Controls.Add(this.btnDangMuon);
+            this.grpBoLoc.Controls.Add(this.btnSanSang);
+            this.grpBoLoc.Controls.Add(this.btnTatCa);
+            this.grpBoLoc.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpBoLoc.Location = new System.Drawing.Point(16, 145);
+            this.grpBoLoc.Margin = new System.Windows.Forms.Padding(4);
+            this.grpBoLoc.Name = "grpBoLoc";
+            this.grpBoLoc.Padding = new System.Windows.Forms.Padding(4);
+            this.grpBoLoc.Size = new System.Drawing.Size(287, 270);
+            this.grpBoLoc.TabIndex = 2;
+            this.grpBoLoc.TabStop = false;
+            this.grpBoLoc.Text = "Bộ Lọc";
             // 
-            // comboBox1
+            // cboTheLoaiFilter
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(8, 65);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(265, 32);
-            this.comboBox1.TabIndex = 4;
+            this.cboTheLoaiFilter.FormattingEnabled = true;
+            this.cboTheLoaiFilter.Items.AddRange(new object[] {
+            "Toán",
+            "Lý",
+            "Hóa",
+            "Sử",
+            "Địa",
+            "Tiếng Anh",
+            "Ngữ Văn",
+            "Sinh",
+            "Aslat",
+            "Truyện Ngôn Tình",
+            "Truyện Phiêu Lưu",
+            "Anime"});
+            this.cboTheLoaiFilter.Location = new System.Drawing.Point(8, 65);
+            this.cboTheLoaiFilter.Margin = new System.Windows.Forms.Padding(4);
+            this.cboTheLoaiFilter.Name = "cboTheLoaiFilter";
+            this.cboTheLoaiFilter.Size = new System.Drawing.Size(265, 32);
+            this.cboTheLoaiFilter.TabIndex = 4;
             // 
-            // label2
+            // lblTheLoaiFilterLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 38);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 24);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Thể loại";
+            this.lblTheLoaiFilterLabel.AutoSize = true;
+            this.lblTheLoaiFilterLabel.Location = new System.Drawing.Point(8, 38);
+            this.lblTheLoaiFilterLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTheLoaiFilterLabel.Name = "lblTheLoaiFilterLabel";
+            this.lblTheLoaiFilterLabel.Size = new System.Drawing.Size(82, 24);
+            this.lblTheLoaiFilterLabel.TabIndex = 8;
+            this.lblTheLoaiFilterLabel.Text = "Thể loại";
             // 
-            // label1
+            // lblTinhTrangLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 102);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 24);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Tình trạng";
+            this.lblTinhTrangLabel.AutoSize = true;
+            this.lblTinhTrangLabel.Location = new System.Drawing.Point(8, 102);
+            this.lblTinhTrangLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTinhTrangLabel.Name = "lblTinhTrangLabel";
+            this.lblTinhTrangLabel.Size = new System.Drawing.Size(102, 24);
+            this.lblTinhTrangLabel.TabIndex = 7;
+            this.lblTinhTrangLabel.Text = "Tình trạng";
             // 
-            // button4
+            // btnDangMuon
             // 
-            this.button4.Location = new System.Drawing.Point(8, 218);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(267, 33);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Đang mượn";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnDangMuon.Location = new System.Drawing.Point(8, 218);
+            this.btnDangMuon.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDangMuon.Name = "btnDangMuon";
+            this.btnDangMuon.Size = new System.Drawing.Size(267, 33);
+            this.btnDangMuon.TabIndex = 6;
+            this.btnDangMuon.Text = "Đang mượn";
+            this.btnDangMuon.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnSanSang
             // 
-            this.button3.Location = new System.Drawing.Point(8, 174);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(267, 33);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Sẵn sàng";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSanSang.Location = new System.Drawing.Point(8, 174);
+            this.btnSanSang.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSanSang.Name = "btnSanSang";
+            this.btnSanSang.Size = new System.Drawing.Size(267, 33);
+            this.btnSanSang.TabIndex = 5;
+            this.btnSanSang.Text = "Sẵn sàng";
+            this.btnSanSang.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnTatCa
             // 
-            this.button2.Location = new System.Drawing.Point(8, 129);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(267, 33);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "ALL";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnTatCa.Location = new System.Drawing.Point(8, 129);
+            this.btnTatCa.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTatCa.Name = "btnTatCa";
+            this.btnTatCa.Size = new System.Drawing.Size(267, 33);
+            this.btnTatCa.TabIndex = 4;
+            this.btnTatCa.Text = "Tất cả";
+            this.btnTatCa.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvBooks
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(323, 15);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(773, 538);
-            this.dataGridView1.TabIndex = 3;
+            this.dgvBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBooks.Location = new System.Drawing.Point(323, 15);
+            this.dgvBooks.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvBooks.Name = "dgvBooks";
+            this.dgvBooks.RowHeadersWidth = 51;
+            this.dgvBooks.Size = new System.Drawing.Size(773, 538);
+            this.dgvBooks.TabIndex = 3;
             // 
-            // label3
+            // lblMaSach
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(11, 15);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 24);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Mã sách";
+            this.lblMaSach.AutoSize = true;
+            this.lblMaSach.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaSach.Location = new System.Drawing.Point(11, 15);
+            this.lblMaSach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMaSach.Name = "lblMaSach";
+            this.lblMaSach.Size = new System.Drawing.Size(82, 24);
+            this.lblMaSach.TabIndex = 4;
+            this.lblMaSach.Text = "Mã sách";
             // 
             // FrmSearchBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 567);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lblMaSach);
+            this.Controls.Add(this.dgvBooks);
+            this.Controls.Add(this.grpBoLoc);
+            this.Controls.Add(this.btnTimKiem);
+            this.Controls.Add(this.txtMaSach);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmSearchBook";
             this.Text = "Tra Cứu Sách";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.grpBoLoc.ResumeLayout(false);
+            this.grpBoLoc.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,16 +196,16 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.TextBox txtMaSach;
+        public System.Windows.Forms.Button btnTimKiem;
+        public System.Windows.Forms.GroupBox grpBoLoc;
+        public System.Windows.Forms.Button btnDangMuon;
+        public System.Windows.Forms.Button btnSanSang;
+        public System.Windows.Forms.Button btnTatCa;
+        public System.Windows.Forms.Label lblTinhTrangLabel;
+        public System.Windows.Forms.Label lblTheLoaiFilterLabel;
+        public System.Windows.Forms.ComboBox cboTheLoaiFilter;
+        public System.Windows.Forms.DataGridView dgvBooks;
+        public System.Windows.Forms.Label lblMaSach;
     }
 }
