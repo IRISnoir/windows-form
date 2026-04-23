@@ -8,8 +8,22 @@ namespace QuanLyThuVien.Enums
 {
     public enum LiquidationReason
     {
-        Mat,
-        HuHong,
-        NguoiDungLamMat
+        Lost,
+        Damaged,
+        LostByUser
+    }
+
+    public static class LiquidationReasonExtensions
+    {
+        public static string GetDisplayName(this LiquidationReason reason)
+        {
+            return reason switch
+            {
+                LiquidationReason.Lost => "Lost",
+                LiquidationReason.Damaged => "Damaged",
+                LiquidationReason.LostByUser => "LostByUser",
+                _ => reason.ToString()
+            };
+        }
     }
 }
