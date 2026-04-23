@@ -17,13 +17,17 @@ namespace QuanLyThuVien.Enums
     {
         public static string GetDisplayName(this LiquidationReason reason)
         {
-            return reason switch
+            switch (reason)
             {
-                LiquidationReason.Lost => "Lost",
-                LiquidationReason.Damaged => "Damaged",
-                LiquidationReason.LostByUser => "LostByUser",
-                _ => reason.ToString()
-            };
+                case LiquidationReason.Lost:
+                    return "Lost";
+                case LiquidationReason.Damaged:
+                    return "Damaged";
+                case LiquidationReason.LostByUser:
+                    return "LostByUser";
+                default:
+                    return reason.ToString();
+            }
         }
     }
 }
